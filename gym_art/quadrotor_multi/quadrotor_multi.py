@@ -78,30 +78,67 @@ class QuadrotorEnvMulti(gym.Env):
         self.action_space = self.envs[0].action_space
 
         # Aux variables
-        self.quad_arm = self.envs[0].dynamics.arm
-        self.control_freq = self.envs[0].control_freq
-        self.control_dt = 1.0 / self.control_freq
-        self.pos = np.zeros([self.num_agents, 3])
-        self.vel = np.zeros([self.num_agents, 3])
-        self.omega = np.zeros([self.num_agents, 3])
-        self.rel_pos = np.zeros((self.num_agents, self.num_agents, 3))
-        self.rel_vel = np.zeros((self.num_agents, self.num_agents, 3))
+        # Физические параметры дрона
+        self.quad_arm = self.envs[0].dynamics.arm  # Длина луча квадрокоптера (расстояние от центра до мотора)
+
+        # Параметры управления
+        self.control_freq = self.envs[0].control_freq  # Частота управления (Гц)
+        self.control_dt = 1.0 / self.control_freq  # Временной шаг управления (сек)
+
+        # Массивы состояний для всех дронов
+        self.pos = np.zeros([self.num_agents, 3])  # Позиции дронов [x, y, z] для каждого агента
+        self.vel = np.zeros([self.num_agents, 3])  # Линейные скорости [vx, vy, vz]
+        self.omega = np.zeros([self.num_agents, 3])  # Угловые скорости [wx, wy, wz]
+
+        # Относительные состояния между дронами
+        self.rel_pos = np.zeros((self.num_agents, self.num_agents, 3))  # Относительные позиции между всеми парами дронов
+        self.rel_vel = np.zeros((self.num_agents, self.num_agents, 3))  # Относительные скорости между всеми парами дронов
+
+        #self.quad_arm = self.envs[0].dynamics.arm
+        #self.control_freq = self.envs[0].control_freq
+        #self.control_dt = 1.0 / self.control_freq
+        #self.pos = np.zeros([self.num_agents, 3])
+        #self.vel = np.zeros([self.num_agents, 3])
+        #self.omega = np.zeros([self.num_agents, 3])
+        #self.rel_pos = np.zeros((self.num_agents, self.num_agents, 3))
+        #self.rel_vel = np.zeros((self.num_agents, self.num_agents, 3))
 
         # Reward
         self.rew_coeff = dict(
-            pos=1., effort=0.05, action_change=0., crash=1., orient=1., yaw=0., rot=0., attitude=0., spin=0.1, vel=0.,
-            quadcol_bin=5., quadcol_bin_smooth_max=4., quadcol_bin_obst=5.
-        )
+                            pos=1.,           # награда за точность позиционирования
+                            effort=0.05,      # штраф за использование энергии
+                            action_change=0., # штраф за резкие изменения управления
+                            crash=1.,         # штраф за столкновения
+                            orient=1.,        # награда за правильную ориентацию
+                            yaw=0.,          # награда за контроль рыскания
+                            rot=0.,          # награда за вращение
+                            attitude=0.,      # награда за положение
+                            spin=0.1,        # штраф за вращение вокруг оси
+                            vel=0.,          # награда за контроль скорости
+                            quadcol_bin=5.,  # штраф за столкновения между квадрокоптерами
+                            quadcol_bin_smooth_max=4., # сглаженный штраф за столкновения
+                            quadcol_bin_obst=5.       # штраф за столкновения с препятствиями
+                            )
+
+        # Создаем полную копию исходных коэффициентов наград
         rew_coeff_orig = copy.deepcopy(self.rew_coeff)
 
+        # Если переданы пользовательские коэффициенты
         if rew_coeff is not None:
+            # Проверяем, что переданный объект - словарь
             assert isinstance(rew_coeff, dict)
+                # Проверяем, что все ключи пользовательских коэффициентов 
+                # существуют в исходном наборе коэффициентов
             assert set(rew_coeff.keys()).issubset(set(self.rew_coeff.keys()))
+            # Обновляем исходные коэффициенты пользовательскими значениями
             self.rew_coeff.update(rew_coeff)
+        # Преобразуем все значения коэффициентов в тип float
         for key in self.rew_coeff.keys():
             self.rew_coeff[key] = float(self.rew_coeff[key])
-
+        # Получаем список исходных ключей
         orig_keys = list(rew_coeff_orig.keys())
+        # Финальная проверка: все ключи текущих коэффициентов
+        # должны присутствовать в исходном наборе
         # Checking to make sure we didn't provide some false rew_coeffs (for example by misspelling one of the params)
         assert np.all([key in orig_keys for key in self.rew_coeff.keys()])
 
@@ -135,7 +172,9 @@ class QuadrotorEnvMulti(gym.Env):
 
         # Scenarios
         self.quads_mode = quads_mode
-        self.scenario = create_scenario(quads_mode=quads_mode, envs=self.envs, num_agents=num_agents,
+        self.scenario = create_scenario(quads_mode=quads_mode, # Выбранный режим полета
+                                        envs=self.envs, 
+                                        num_agents=num_agents,
                                         room_dims=room_dims)
 
         # Collisions
@@ -280,8 +319,8 @@ class QuadrotorEnvMulti(gym.Env):
 
     def can_drones_fly(self):
         """
-        Here we count the average number of collisions with the walls and ground in the last N episodes
-        Returns: True if drones are considered proficient at flying
+        Здесь мы подсчитываем среднее количество столкновений со стенами и землей за последние N эпизодов
+        Возвращает значение: Верно, если дроны считаются опытными в управлении
         """
         res = abs(np.mean(self.crashes_in_recent_episodes)) < 1 and len(self.crashes_in_recent_episodes) >= 10
         return res
@@ -337,39 +376,55 @@ class QuadrotorEnvMulti(gym.Env):
             ))
 
     def reset(self, obst_density=None, obst_size=None):
+        # Инициализация пустых списков для хранения состояний среды
         obs, rewards, dones, infos = [], [], [], []
 
+        # Обновление параметров препятствий, если они переданы
         if obst_density:
             self.obst_density = obst_density
         if obst_size:
             self.obst_size = obst_size
 
-        # Scenario reset
+        # Scenario reset Сброс сценария с препятствиями
         if self.use_obstacles:
             self.obstacles = MultiObstacles(obstacle_size=self.obst_size, quad_radius=self.quad_arm)
             self.obst_map, obst_pos_arr, cell_centers = self.obst_generation_given_density()
             self.scenario.reset(obst_map=self.obst_map, cell_centers=cell_centers)
         else:
+            # Простой сброс сценария без препятствий
             self.scenario.reset()
 
-        # Replay buffer
+        # Replay buffer Управление буфером воспроизведения
         if self.use_replay_buffer and not self.activate_replay_buffer:
+            # Добавляем количество аварий в последнем эпизоде в историю
             self.crashes_in_recent_episodes.append(self.crashes_last_episode)
+            # Проверяем, могут ли дроны летать (метод can_drones_fly())
+            # и активируем буфер только когда дроны научились базовому полету
             self.activate_replay_buffer = self.can_drones_fly()
+             # Сбрасываем счетчик аварий для нового эпизода
             self.crashes_last_episode = 0
 
+        # Сброс состояний для каждого дрона
         for i, e in enumerate(self.envs):
+            # Установка целей и точек появления для каждого дрона
             e.goal = self.scenario.goals[i]
             if self.scenario.spawn_points is None:
                 e.spawn_point = self.scenario.goals[i]
             else:
                 e.spawn_point = self.scenario.spawn_points[i]
             e.rew_coeff = self.rew_coeff
-
+            # Сброс состояния дрона и сохранение наблюдений
             observation = e.reset()
             obs.append(observation)
             self.pos[i, :] = e.dynamics.pos
-
+                # Вывод начального состояния для каждого дрона
+            #print(f"Drone {i} initial state:")
+            #print(f"Position: {self.pos[i,:]}")
+            #print(f"Goal position: {e.goal}")
+            #print(f"Spawn point: {e.spawn_point}")
+            #print(f"Initial observation: {observation}")
+            #print("------------------------")
+        
         # Neighbors
         if self.num_use_neighbor_obs > 0:
             obs = self.add_neighborhood_obs(obs)

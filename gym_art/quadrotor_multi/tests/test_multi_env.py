@@ -24,12 +24,19 @@ def create_env(num_agents, use_numba=False, use_replay_buffer=False, episode_dur
 
     env = QuadrotorEnvMulti(
         num_agents=num_agents,
-        dynamics_params=quad, raw_control=raw_control, raw_control_zero_middle=raw_control_zero_middle,
-        dynamics_randomize_every=dyn_randomize_every, dynamics_change=dynamics_change, dyn_sampler_1=sampler_1,
-        sense_noise=sense_noise, init_random_state=True, ep_time=episode_duration, quads_use_numba=use_numba,
+        dynamics_params=quad, 
+        raw_control=raw_control, 
+        raw_control_zero_middle=raw_control_zero_middle,
+        dynamics_randomize_every=dyn_randomize_every, 
+        dynamics_change=dynamics_change, 
+        dyn_sampler_1=sampler_1,
+        sense_noise=sense_noise, 
+        init_random_state=True, 
+        ep_time=episode_duration, 
+        use_numba=use_numba,
         use_replay_buffer=use_replay_buffer,
-        swarm_obs="pos_vel_goals_ndist_gdist",
-        local_obs=local_obs,
+        #swarm_obs="pos_vel_goals_ndist_gdist",
+        #local_obs=local_obs,
     )
     return env
 

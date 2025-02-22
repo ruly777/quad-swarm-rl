@@ -93,8 +93,11 @@ def compute_reward_weighted(dynamics, goal, action, dt, time_remain, rew_coeff, 
 
 
 # ENV Gym environment for quadrotor seeking the origin with no obstacles and full state observations. NOTES: - room
+#Среда ENV Gym для квадротора, который ищет исходную точку без препятствий и с полным наблюдением за состоянием. ПРИМЕЧАНИЯ: - комната
 # size of the env and init state distribution are not the same ! It is done for the reason of having static (and
+#размер распределения состояний env и init не совпадают! Это сделано по причине наличия статических (и
 # preferably short) episode length, since for some distance it would be impossible to reach the goal
+#желательно короткая) продолжительность эпизода, так как на некотором расстоянии достичь цели было бы невозможно
 class QuadrotorSingle:
     def __init__(self, dynamics_params="DefaultQuad", dynamics_change=None,
                  dynamics_randomize_every=None, dyn_sampler_1=None, dyn_sampler_2=None,
@@ -135,6 +138,37 @@ class QuadrotorSingle:
             sens_noise (dict or str): sensor noise parameters. If None - no noise. If "default" then the default params 
                 are loaded. Otherwise one can provide specific params.
             excite: [bool] change the set point at the fixed frequency to perturb the quad
+
+            Аргументы:
+            dynamics_params: [str или dict] загрузка параметров динамики по имени или с помощью словаря. 
+                Если "случайный": динамика будет полностью рандомизирована (см. sample_dyn_parameters() )
+                Если параметр dynamics_randomize_every равен None, то он будет рандомизирован только один раз в начале.
+                Можно рандомизировать dynamics в конце любого эпизода, используя resample_dynamics()
+                ВНИМАНИЕ: рандомизация во время эпизода пока не поддерживается. Выполняйте рандомизацию ТОЛЬКО перед вызовом функции reset().
+            dynamics_change: [dict] обновление параметров динамики относительно предоставленных dynamics_params.
+            
+            dynamics_randomize_every: [int] как часто (траектории) выполняется рандомизация dynamics_sampler_1: [dict] 
+            первый используемый образец. Dict должен содержать тип (см. quadrotor_randomization) и любые параметры 
+            требует 
+            dynamics_sampler_2: [указать] второй сэмплер, который нужно применить. Удобно, если вам нужно
+            исправить некоторые параметры после сэмплирования.
+            
+            raw_control: [bool] по умолчанию используется необработанный элемент управления или контроллер Mellinger
+            raw_control_zero_middle: [bool] это означает, что значение элемента управления будет [-1 .. 1], а не [0 .. 1]
+            dim_mode: [str] Размерность среды. 
+            Параметры: 1D (только вертикальная стабилизация), 2D (вертикальная плоскость), 3D (обычная)
+            tf_control: [bool] создает контроллер Меллинджера с использованием TensorFlow
+            sim_freq (с плавающей точкой): частота моделирования
+            sim_steps: [int] сколько шагов моделирования для каждого шага управления
+            obs_repr: [str] параметры: xyz_vxyz_rot_omega, xyz_vxyz_quat_omega
+            ep_time: [плавающее значение] время эпизода в смоделированных секундах. 
+                Этот параметр используется для пошагового вычисления максимальной продолжительности env.
+            room_size: [int] размер комнаты env. Не совпадает с полем инициализации, чтобы разрешить более короткие эпизоды
+            init_random_state: [bool] использует случайную инициализацию состояния или горизонтальную инициализацию с нулевыми скоростями
+            rew_coeff: [dict] веса для различных компонентов вознаграждения (см. функцию compute_weighted_reward())
+            sens_noise (dict или str): параметры шума датчика. Если нет - шума нет. Если "по умолчанию", то загружаются параметры по умолчанию 
+                . В противном случае можно указать конкретные параметры.
+            возбуждать: [bool] измените заданное значение на фиксированной частоте, чтобы нарушить работу четырехъядерного
         """
         # Numba Speed Up
         self.use_numba = use_numba
@@ -400,7 +434,10 @@ class QuadrotorSingle:
         # Since being near the groud means crash we have to start above
         if z < 0.75:
             z = 0.75
-        pos = npa(x, y, z)
+        #x=7.1     #Позиция дрона первоначальная под целью минимальная Z = 0.75
+        #y=7.1
+        z=1.0   
+        pos = npa(x, y, z) #Позиция дрона первоначальная минимальная Z = 0.75
 
         # INIT STATE
         # Initializing rotation and velocities
@@ -428,10 +465,22 @@ class QuadrotorSingle:
             if self.dim_mode == '1D' or self.dim_mode == '2D':
                 rotation = np.eye(3)
             else:
-                # make sure we're sort of pointing towards goal (for mellinger controller)
-                rotation = randyaw()
+                    # make sure we're sort of pointing towards goal (for mellinger controller)
+                    # Убеждаемся что дрон направлен в сторону цели (для контроллера mellinger)
+                rotation = randyaw()  # Генерируем случайную матрицу поворота вокруг оси Z
+    
+                    # Цикл продолжается пока угол между направлением дрона и целью слишком большой
                 while np.dot(rotation[:, 0], to_xyhat(-pos)) < 0.5:
-                    rotation = randyaw()
+                     # rotation[:, 0] - первый столбец матрицы поворота (направление вперед)
+                     # to_xyhat(-pos) - нормализованный вектор направления к цели
+                      # np.dot - скалярное произведение (косинус угла между векторами)
+                      # < 0.5 означает угол больше 60 градусов
+                      #Код обеспечивает, чтобы "нос" дрона (его локальная ось X) был направлен в сторону цели в горизонтальной плоскости XY. Когда скалярное произведение векторов становится больше 0.5, это означает, что дрон достаточно точно сориентирован на цель в горизонтальной проекции. Это важно для эффективного управления движением дрона к заданной точке.
+                    rotation = randyaw()  # Генерируем новую матрицу поворота
+                
+        #        rotation = randyaw()
+        #        while np.dot(rotation[:, 0], to_xyhat(-pos)) < 0.5:
+        #            rotation = randyaw()
 
         self.init_state = [pos, vel, rotation, omega]
         self.dynamics.set_state(pos, vel, rotation, omega)
@@ -455,3 +504,4 @@ class QuadrotorSingle:
 
     def step(self, action):
         return self._step(action)
+   

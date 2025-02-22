@@ -1,3 +1,5 @@
+# содержимое файла baseline.py
+
 from sample_factory.launcher.run_description import RunDescription, Experiment, ParamGrid
 
 _params = ParamGrid([
@@ -6,14 +8,16 @@ _params = ParamGrid([
 
 QUAD_BASELINE_CLI = (
     'python -m swarm_rl.train --env=quadrotor_multi --train_for_env_steps=1000000000 --algo=APPO --use_rnn=False '
-    '--num_workers=2 --num_envs_per_worker=8 --learning_rate=0.0001 --ppo_clip_value=5.0 --recurrence=1 '
+    '--num_workers=36 --num_envs_per_worker=4 --learning_rate=0.0001 --ppo_clip_value=5.0 --recurrence=1 '
     '--nonlinearity=tanh --actor_critic_share_weights=False --policy_initialization=xavier_uniform '
     '--adaptive_stddev=False --with_vtrace=False --max_policy_lag=100000000 --rnn_size=256 --with_pbt=False '
     '--gae_lambda=1.00 --max_grad_norm=5.0 --exploration_loss_coeff=0.0 --rollout=128 --batch_size=1024 '
-    '--quads_use_numba=True --quads_num_agents=1 --quads_mode=static_same_goal --quads_episode_duration=15.0 '
+    '--quads_use_numba=True --quads_num_agents=1 --quads_mode=mix --quads_episode_duration=15.0 '
     '--quads_neighbor_encoder_type=no_encoder --quads_neighbor_hidden_size=0 --quads_neighbor_obs_type=none '
     '--quads_neighbor_visible_num=0 --replay_buffer_sample_prob=0.75 --anneal_collision_steps=300000000 '
-    '--normalize_input=False --normalize_returns=False --reward_clip=10.0 --save_milestones_sec=3600'
+    '--normalize_input=True --normalize_returns=True --reward_clip=1000.0 --save_milestones_sec=3600 '
+    '--restart_behavior=resume --shuffle_minibatches=True --quads_collision_reward=5.0 --quads_collision_falloff_radius=4.0'
+
 )
 
 
@@ -24,3 +28,9 @@ _experiment = Experiment(
 )
 
 RUN_DESCRIPTION = RunDescription('quads_multi_mix_baseline_8a_local_v116', experiments=[_experiment])
+
+# --restart_behavior со следующими опциями:
+
+#"resume" (по умолчанию) - продолжит обучение с последнего сохраненного состояния
+#"restart" - сохранит существующую папку эксперимента под другим именем (с суффиксом "old") и начнет обучение заново
+#"overwrite" - удалит существующую папку эксперимента и начнет с нуля

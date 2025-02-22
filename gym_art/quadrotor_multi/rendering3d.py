@@ -118,7 +118,10 @@ class WindowTarget(object):
             config = Config(double_buffer=True, depth_size=16)
         else:
             antialiasing_x = 4
-            config = Config(double_buffer=True, depth_size=16, sample_buffers=1, samples=antialiasing_x)
+            config = Config(double_buffer=True, 
+                            depth_size=16,
+                            sample_buffers=0, #1, 
+                            samples=0 ) #antialiasing_x)
 
         display = get_display(display)
         # vsync is set to false to speed up FBO-only renders, we enable before draw
@@ -873,6 +876,16 @@ def _np2tex(a):
     b = np.uint8(a).tobytes()
     assert len(b) == w * h
     img = pyglet.image.ImageData(w, h, "L", b)
+    
+    # Выводим информацию об изображении
+    print(f"Размеры изображения: {w}x{h}")
+    #print(f"Формат изображения: {img.format}")
+    #print(f"Pitch изображения: {img.pitch}")
+    #print(f"Данные изображения (первые 10 байт): {a.shape }")
+    #img.get_texture()
+    # Если нужно сохранить изображение для просмотра
+    #img.save('texture_debug.png')
+
     return img.get_texture()
 
 
