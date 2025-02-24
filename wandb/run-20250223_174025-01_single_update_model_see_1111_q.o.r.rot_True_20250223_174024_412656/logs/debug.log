@@ -1,0 +1,25 @@
+2025-02-23 17:40:25,277 INFO    MainThread:137654 [wandb_setup.py:_flush():68] Current SDK version is 0.19.5
+2025-02-23 17:40:25,277 INFO    MainThread:137654 [wandb_setup.py:_flush():68] Configure stats pid to 137654
+2025-02-23 17:40:25,277 INFO    MainThread:137654 [wandb_setup.py:_flush():68] Loading settings from /home/fire_tech/.config/wandb/settings
+2025-02-23 17:40:25,277 INFO    MainThread:137654 [wandb_setup.py:_flush():68] Loading settings from /home/fire_tech/quad-swarm-rl/wandb/settings
+2025-02-23 17:40:25,277 INFO    MainThread:137654 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-02-23 17:40:25,277 INFO    MainThread:137654 [wandb_init.py:setup_run_log_directory():637] Logging user logs to /home/fire_tech/quad-swarm-rl/wandb/run-20250223_174025-01_single_update_model_see_1111_q.o.r.rot_True_20250223_174024_412656/logs/debug.log
+2025-02-23 17:40:25,277 INFO    MainThread:137654 [wandb_init.py:setup_run_log_directory():638] Logging internal logs to /home/fire_tech/quad-swarm-rl/wandb/run-20250223_174025-01_single_update_model_see_1111_q.o.r.rot_True_20250223_174024_412656/logs/debug-internal.log
+2025-02-23 17:40:25,336 INFO    MainThread:137654 [wandb_init.py:init():756] calling init triggers
+2025-02-23 17:40:25,336 INFO    MainThread:137654 [wandb_init.py:init():761] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-02-23 17:40:25,336 INFO    MainThread:137654 [wandb_init.py:init():789] starting backend
+2025-02-23 17:40:25,540 INFO    MainThread:137654 [wandb_init.py:init():793] sending inform_init request
+2025-02-23 17:40:25,542 INFO    MainThread:137654 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: fork
+2025-02-23 17:40:25,543 INFO    MainThread:137654 [wandb_init.py:init():808] backend started and connected
+2025-02-23 17:40:25,543 INFO    MainThread:137654 [wandb_init.py:init():901] updated telemetry
+2025-02-23 17:40:25,545 INFO    MainThread:137654 [wandb_init.py:init():926] communicating run to backend with 90.0 second timeout
+2025-02-23 17:40:26,160 ERROR   MainThread:137654 [wandb_init.py:init():1471] error in wandb.init()
+Traceback (most recent call last):
+  File "/home/fire_tech/miniconda3/envs/swarm-rlc/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 1461, in init
+    return wi.init(run_settings, run_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fire_tech/miniconda3/envs/swarm-rlc/lib/python3.11/site-packages/wandb/sdk/wandb_init.py", line 957, in init
+    raise error
+wandb.errors.errors.CommError: failed to upsert bucket: returned error 403 Forbidden: {"errors":[{"message":"permission denied","path":["upsertBucket"],"extensions":{"code":"PERMISSION_ERROR"}}],"data":{"upsertBucket":null}}
+2025-02-23 17:40:26,587 WARNING MsgRouterThr:137654 [router.py:message_loop():75] message_loop has been closed

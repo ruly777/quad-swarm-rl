@@ -1,0 +1,17 @@
+{"time":"2025-02-23T17:12:51.547991415+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/home/fire_tech/quad-swarm-rl/wandb/run-20250223_171251-00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085/logs/debug-core.log"}
+{"time":"2025-02-23T17:12:51.767323539+03:00","level":"INFO","msg":"created new stream","id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:12:51.767368773+03:00","level":"INFO","msg":"stream: started","id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:12:51.76738002+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:12:51.767449004+03:00","level":"INFO","msg":"handler: started","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:12:51.767469899+03:00","level":"INFO","msg":"sender: started","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:12:52.22618849+03:00","level":"ERROR","msg":"HTTP error","status":403,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-02-23T17:12:52.226243883+03:00","level":"ERROR","msg":"sender: upsertRun:","error":"failed to upsert bucket: returned error 403 Forbidden: {\"errors\":[{\"message\":\"permission denied\",\"path\":[\"upsertBucket\"],\"extensions\":{\"code\":\"PERMISSION_ERROR\"}}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-02-23T17:14:31.055040913+03:00","level":"INFO","msg":"stream: closing","id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:14:31.055555068+03:00","level":"ERROR","msg":"sender: upsertConfig: RunRecord is nil"}
+{"time":"2025-02-23T17:14:31.291895091+03:00","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-02-23T17:14:31.291978144+03:00","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404 Not Found: {\"errors\":[{\"message\":\"run Quad-Swarm-RL/00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085 not found during createRunFiles\",\"path\":[\"createRunFiles\"]}],\"data\":{\"createRunFiles\":null}}"}
+{"time":"2025-02-23T17:14:31.293322037+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-23T17:14:31.293358473+03:00","level":"INFO","msg":"handler: closed","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:14:31.293368827+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:14:31.293405504+03:00","level":"INFO","msg":"sender: closed","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:14:31.293408727+03:00","level":"INFO","msg":"stream: closed","id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}

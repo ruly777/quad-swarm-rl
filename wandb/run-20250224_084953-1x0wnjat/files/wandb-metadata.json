@@ -1,0 +1,41 @@
+{
+  "os": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "python": "CPython 3.11.11",
+  "startedAt": "2025-02-24T05:49:53.403056Z",
+  "program": "/home/fire_tech/quad-swarm-rl/wandb_test.ipynb",
+  "codePath": "wandb_test.ipynb",
+  "git": {
+    "remote": "https://github.com/ruly777/quad-swarm-rl",
+    "commit": "a0e77f9a73462e7d9c90e20ff8b8997cae31add2"
+  },
+  "email": "ruly777@yahoo.com",
+  "root": "/home/fire_tech/quad-swarm-rl",
+  "host": "MainPC",
+  "executable": "/home/fire_tech/miniconda3/envs/swarm-rlc/bin/python",
+  "codePathLocal": "wandb_test.ipynb",
+  "cpu_count": 14,
+  "cpu_count_logical": 28,
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "1081101176832",
+      "used": "20434669568"
+    }
+  },
+  "memory": {
+    "total": "33567698944"
+  },
+  "cpu": {
+    "count": 14,
+    "countLogical": 28
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3090",
+      "memoryTotal": "25769803776",
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.6"
+}

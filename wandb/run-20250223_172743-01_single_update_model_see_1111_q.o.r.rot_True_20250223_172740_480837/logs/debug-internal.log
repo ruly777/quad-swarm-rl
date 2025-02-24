@@ -1,0 +1,8 @@
+{"time":"2025-02-23T17:27:43.257182665+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/home/fire_tech/quad-swarm-rl/wandb/run-20250223_172743-01_single_update_model_see_1111_q.o.r.rot_True_20250223_172740_480837/logs/debug-core.log"}
+{"time":"2025-02-23T17:27:43.380972906+03:00","level":"INFO","msg":"created new stream","id":"01_single_update_model_see_1111_q.o.r.rot_True_20250223_172740_480837"}
+{"time":"2025-02-23T17:27:43.381001711+03:00","level":"INFO","msg":"stream: started","id":"01_single_update_model_see_1111_q.o.r.rot_True_20250223_172740_480837"}
+{"time":"2025-02-23T17:27:43.38101229+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"01_single_update_model_see_1111_q.o.r.rot_True_20250223_172740_480837"}
+{"time":"2025-02-23T17:27:43.381050402+03:00","level":"INFO","msg":"handler: started","stream_id":"01_single_update_model_see_1111_q.o.r.rot_True_20250223_172740_480837"}
+{"time":"2025-02-23T17:27:43.381058547+03:00","level":"INFO","msg":"sender: started","stream_id":"01_single_update_model_see_1111_q.o.r.rot_True_20250223_172740_480837"}
+{"time":"2025-02-23T17:27:43.813163704+03:00","level":"ERROR","msg":"HTTP error","status":403,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2025-02-23T17:27:43.813200402+03:00","level":"ERROR","msg":"sender: upsertRun:","error":"failed to upsert bucket: returned error 403 Forbidden: {\"errors\":[{\"message\":\"permission denied\",\"path\":[\"upsertBucket\"],\"extensions\":{\"code\":\"PERMISSION_ERROR\"}}],\"data\":{\"upsertBucket\":null}}"}

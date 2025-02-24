@@ -1,0 +1,6 @@
+{"time":"2025-02-23T17:14:30.926657248+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/home/fire_tech/quad-swarm-rl/wandb/run-20250223_171430-00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085/logs/debug-core.log"}
+{"time":"2025-02-23T17:14:31.054851507+03:00","level":"INFO","msg":"created new stream","id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:14:31.054877294+03:00","level":"INFO","msg":"stream: started","id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:14:31.054894758+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:14:31.054945333+03:00","level":"INFO","msg":"handler: started","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}
+{"time":"2025-02-23T17:14:31.054927994+03:00","level":"INFO","msg":"sender: started","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250223_171250_508085"}

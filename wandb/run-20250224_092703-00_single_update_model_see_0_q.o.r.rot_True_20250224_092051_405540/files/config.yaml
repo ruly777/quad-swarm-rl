@@ -1,0 +1,473 @@
+_wandb:
+    value:
+        cli_version: 0.19.5
+        m: []
+        python_version: 3.11.11
+        t:
+            "1":
+                - 1
+                - 55
+            "2":
+                - 1
+                - 55
+            "3":
+                - 5
+                - 13
+                - 14
+                - 15
+                - 23
+                - 35
+                - 55
+                - 62
+            "4": 3.11.11
+            "5": 0.19.5
+            "8":
+                - 6
+            "12": 0.19.5
+            "13": linux-x86_64
+actor_critic_share_weights:
+    value: false
+actor_worker_gpus:
+    value: []
+adam_beta1:
+    value: 0.9
+adam_beta2:
+    value: 0.999
+adam_eps:
+    value: 1e-06
+adaptive_stddev:
+    value: false
+algo:
+    value: APPO
+anneal_collision_steps:
+    value: 0
+async_rl:
+    value: true
+batch_size:
+    value: 1024
+batched_sampling:
+    value: false
+benchmark:
+    value: false
+cli_args:
+    value:
+        actor_critic_share_weights: false
+        adaptive_stddev: false
+        algo: APPO
+        anneal_collision_steps: 0
+        batch_size: 1024
+        env: quadrotor_multi
+        experiment: 00_single_update_model_see_0_q.o.r.rot_True
+        exploration_loss_coeff: 0
+        gae_lambda: 1
+        heartbeat_interval: 60
+        heartbeat_reporting_interval: 600
+        learning_rate: 0.0001
+        max_grad_norm: 5
+        max_policy_lag: 100000000
+        nonlinearity: tanh
+        normalize_input: false
+        normalize_returns: false
+        num_envs_per_worker: 32
+        num_workers: 36
+        policy_initialization: xavier_uniform
+        ppo_clip_value: 5
+        quads_collision_falloff_radius: 4
+        quads_collision_hitbox_radius: 2
+        quads_collision_reward: 5
+        quads_collision_smooth_max_penalty: 4
+        quads_dynamic_goal: false
+        quads_encoder_type: corl
+        quads_episode_duration: 15
+        quads_mode: static_same_goal
+        quads_neighbor_encoder_type: mean_embed
+        quads_neighbor_hidden_size: 16
+        quads_neighbor_obs_type: none
+        quads_neighbor_visible_num: 0
+        quads_num_agents: 1
+        quads_obs_rel_rot: true
+        quads_obs_repr: xyz_vxyz_R_omega
+        quads_use_downwash: true
+        quads_use_numba: true
+        quads_use_obstacles: false
+        recurrence: 1
+        replay_buffer_sample_prob: 0
+        reward_clip: 10
+        rnn_size: 16
+        rollout: 128
+        save_milestones_sec: 10000
+        seed: 0
+        train_dir: ./train_dir/single_drone/single_update_model_
+        train_for_env_steps: 1000000000
+        use_rnn: false
+        wandb_group: single_update_model
+        wandb_project: Quad-Swarm-RL
+        wandb_user: ruly777
+        with_pbt: false
+        with_vtrace: false
+        with_wandb: true
+command_line:
+    value: --env=quadrotor_multi --train_for_env_steps=1000000000 --algo=APPO --use_rnn=False --num_workers=36 --num_envs_per_worker=32 --learning_rate=0.0001 --ppo_clip_value=5.0 --recurrence=1 --nonlinearity=tanh --actor_critic_share_weights=False --policy_initialization=xavier_uniform --adaptive_stddev=False --with_vtrace=False --max_policy_lag=100000000 --rnn_size=16 --gae_lambda=1.00 --max_grad_norm=5.0 --exploration_loss_coeff=0.0 --rollout=128 --batch_size=1024 --with_pbt=False --normalize_input=False --normalize_returns=False --reward_clip=10 --heartbeat_interval=60 --heartbeat_reporting_interval=600 --quads_num_agents=1 --quads_use_numba=True --save_milestones_sec=10000 --anneal_collision_steps=0 --replay_buffer_sample_prob=0.0 --quads_use_downwash=True --quads_encoder_type=corl --quads_mode=static_same_goal --quads_episode_duration=15.0 --quads_obs_repr=xyz_vxyz_R_omega --quads_obs_rel_rot=True --quads_dynamic_goal=False --quads_neighbor_hidden_size=16 --quads_neighbor_obs_type=none --quads_collision_hitbox_radius=2.0 --quads_collision_falloff_radius=4.0 --quads_collision_reward=5.0 --quads_collision_smooth_max_penalty=4.0 --quads_neighbor_encoder_type=mean_embed --quads_neighbor_visible_num=0 --quads_use_obstacles=False --seed=0 --experiment=00_single_update_model_see_0 --train_dir=./train_dir/single_drone/single_update_model --with_wandb=True --wandb_project=Quad-Swarm-RL --wandb_group=sergeyl_training --wandb_user=ruly777 --with_wandb=True --wandb_project=Quad-Swarm-RL --wandb_group=single_update_model --wandb_user=ruly777 --seed=0 --quads_obs_rel_rot=True --experiment=00_single_update_model_see_0_q.o.r.rot_True --train_dir=./train_dir/single_drone/single_update_model_
+continuous_tanh_scale:
+    value: 0
+decoder_mlp_layers:
+    value: []
+decorrelate_envs_on_one_worker:
+    value: true
+decorrelate_experience_max_seconds:
+    value: 0
+default_niceness:
+    value: 0
+device:
+    value: gpu
+encoder_conv_architecture:
+    value: convnet_simple
+encoder_conv_mlp_layers:
+    value:
+        - 512
+encoder_extra_fc_layers:
+    value: 0
+encoder_mlp_layers:
+    value:
+        - 512
+        - 512
+encoder_subtype:
+    value: mlp_quads
+encoder_type:
+    value: mlp
+env:
+    value: quadrotor_multi
+env_frameskip:
+    value: 1
+env_framestack:
+    value: 1
+env_gpu_actions:
+    value: false
+env_gpu_observations:
+    value: true
+experiment:
+    value: 00_single_update_model_see_0_q.o.r.rot_True
+experiment_summaries_interval:
+    value: 10
+exploration_loss:
+    value: entropy
+exploration_loss_coeff:
+    value: 0
+flush_summaries_interval:
+    value: 30
+force_envs_single_thread:
+    value: false
+gae_lambda:
+    value: 1
+gamma:
+    value: 0.99
+git_hash:
+    value: a0e77f9a73462e7d9c90e20ff8b8997cae31add2
+git_repo_name:
+    value: https://github.com/ruly777/quad-swarm-rl
+heartbeat_interval:
+    value: 60
+heartbeat_reporting_interval:
+    value: 600
+help:
+    value: false
+initial_stddev:
+    value: 1
+keep_checkpoints:
+    value: 2
+kl_loss_coeff:
+    value: 0
+learning_rate:
+    value: 0.0001
+load_checkpoint_kind:
+    value: latest
+log_to_file:
+    value: true
+lr_adaptive_max:
+    value: 0.01
+lr_adaptive_min:
+    value: 1e-06
+lr_schedule:
+    value: constant
+lr_schedule_kl_threshold:
+    value: 0.008
+max_grad_norm:
+    value: 5
+max_policy_lag:
+    value: 100000000
+nonlinearity:
+    value: tanh
+normalize_input:
+    value: false
+normalize_input_keys:
+    value: null
+normalize_returns:
+    value: false
+num_batches_per_epoch:
+    value: 1
+num_batches_to_accumulate:
+    value: 2
+num_envs_per_worker:
+    value: 16
+num_epochs:
+    value: 1
+num_policies:
+    value: 1
+num_workers:
+    value: 26
+obs_scale:
+    value: 1
+obs_subtract_mean:
+    value: 0
+optimizer:
+    value: adam
+pbt_mix_policies_in_one_env:
+    value: true
+pbt_mutation_rate:
+    value: 0.15
+pbt_optimize_gamma:
+    value: false
+pbt_period_env_steps:
+    value: 5000000
+pbt_perturb_max:
+    value: 1.5
+pbt_perturb_min:
+    value: 1.1
+pbt_replace_fraction:
+    value: 0.3
+pbt_replace_reward_gap:
+    value: 0.1
+pbt_replace_reward_gap_absolute:
+    value: 1e-06
+pbt_start_mutation:
+    value: 20000000
+pbt_target_objective:
+    value: true_objective
+pixel_format:
+    value: CHW
+policy_init_gain:
+    value: 1
+policy_initialization:
+    value: xavier_uniform
+policy_workers_per_policy:
+    value: 1
+ppo_clip_ratio:
+    value: 0.1
+ppo_clip_value:
+    value: 5
+quads_attn_head_num:
+    value: 4
+quads_coeff_effort:
+    value: 0.05
+quads_coeff_omega:
+    value: 0
+quads_coeff_sbc_acc:
+    value: 0
+quads_coeff_sbc_boundary:
+    value: 0
+quads_coeff_spin:
+    value: 0
+quads_coeff_vel:
+    value: 0
+quads_coeff_z_overlap:
+    value: 0
+quads_collision_falloff_radius:
+    value: 4
+quads_collision_hitbox_radius:
+    value: 2
+quads_collision_reward:
+    value: 5
+quads_collision_smooth_max_penalty:
+    value: 4
+quads_critic_obs:
+    value: octomap
+quads_critic_rnn_size:
+    value: -1
+quads_dynamic_goal:
+    value: false
+quads_enable_sbc:
+    value: true
+quads_encoder_type:
+    value: corl
+quads_episode_duration:
+    value: 15
+quads_mode:
+    value: static_same_goal
+quads_neighbor_encoder_type:
+    value: mean_embed
+quads_neighbor_hidden_size:
+    value: 16
+quads_neighbor_obs_type:
+    value: none
+quads_neighbor_obs_update_freq:
+    value: 5
+quads_neighbor_range:
+    value: 2
+quads_neighbor_visible_num:
+    value: 0
+quads_num_agents:
+    value: 1
+quads_obs_rel_rot:
+    value: true
+quads_obs_repr:
+    value: xyz_vxyz_R_omega
+quads_obst_collision_prox_max:
+    value: 0
+quads_obst_collision_prox_min:
+    value: 0
+quads_obst_collision_prox_weight:
+    value: 0
+quads_obst_collision_reward:
+    value: 0
+quads_obst_density:
+    value: 0.2
+quads_obst_density_max:
+    value: 0.8
+quads_obst_density_min:
+    value: 0.2
+quads_obst_density_random:
+    value: false
+quads_obst_encoder_type:
+    value: mlp
+quads_obst_grid_size:
+    value: 1
+quads_obst_grid_size_random:
+    value: false
+quads_obst_grid_size_range:
+    value:
+        - 0.5
+        - 0.8
+quads_obst_hidden_size:
+    value: 256
+quads_obst_min_gap_threshold:
+    value: 0.4
+quads_obst_noise:
+    value: 0
+quads_obst_range:
+    value: 2
+quads_obst_size:
+    value: 1
+quads_obst_size_max:
+    value: 0.6
+quads_obst_size_min:
+    value: 0.2
+quads_obst_size_random:
+    value: false
+quads_obst_spawn_area:
+    value:
+        - 15
+        - 8
+quads_obst_spawn_center:
+    value: true
+quads_obstacle_obs_type:
+    value: ToFs
+quads_obstacle_tof_resolution:
+    value: 4
+quads_render:
+    value: false
+quads_render_mode:
+    value: human
+quads_room_dims:
+    value:
+        - 15
+        - 15
+        - 5
+quads_sbc_obst_agg:
+    value: 0.2
+quads_sim2real:
+    value: false
+quads_use_ctbr:
+    value: false
+quads_use_downwash:
+    value: true
+quads_use_numba:
+    value: true
+quads_use_obstacles:
+    value: false
+quads_view_mode:
+    value:
+        - topdown
+        - chase
+        - global
+recurrence:
+    value: 1
+replay_buffer_sample_prob:
+    value: 0
+restart_behavior:
+    value: resume
+reward_clip:
+    value: 10
+reward_scale:
+    value: 1
+rnn_num_layers:
+    value: 1
+rnn_size:
+    value: 16
+rnn_type:
+    value: gru
+rollout:
+    value: 128
+save_best_after:
+    value: 100000
+save_best_every_sec:
+    value: 5
+save_best_metric:
+    value: reward
+save_every_sec:
+    value: 120
+save_milestones_sec:
+    value: 10000
+seed:
+    value: 0
+serial_mode:
+    value: false
+set_workers_cpu_affinity:
+    value: true
+shuffle_minibatches:
+    value: false
+stats_avg:
+    value: 100
+summaries_use_frameskip:
+    value: true
+train_dir:
+    value: ./train_dir/single_drone/single_update_model_
+train_for_env_steps:
+    value: 1000000000
+train_for_seconds:
+    value: 10000000000
+use_env_info_cache:
+    value: false
+use_record_episode_statistics:
+    value: false
+use_rnn:
+    value: false
+value_bootstrap:
+    value: false
+value_loss_coeff:
+    value: 0.5
+visualize_v_value:
+    value: false
+vtrace_c:
+    value: 1
+vtrace_rho:
+    value: 1
+wandb_group:
+    value: single_update_model
+wandb_job_type:
+    value: SF
+wandb_project:
+    value: Quad-Swarm-RL
+wandb_tags:
+    value: []
+wandb_unique_id:
+    value: 00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540
+wandb_user:
+    value: ruly777
+with_pbt:
+    value: false
+with_vtrace:
+    value: false
+with_wandb:
+    value: true
+worker_num_splits:
+    value: 2

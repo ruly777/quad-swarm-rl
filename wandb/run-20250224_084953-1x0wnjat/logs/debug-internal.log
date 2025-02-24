@@ -1,0 +1,20 @@
+{"time":"2025-02-24T08:49:53.402955205+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/home/fire_tech/quad-swarm-rl/wandb/run-20250224_084953-1x0wnjat/logs/debug-core.log"}
+{"time":"2025-02-24T08:49:53.530077965+03:00","level":"INFO","msg":"created new stream","id":"1x0wnjat"}
+{"time":"2025-02-24T08:49:53.530103493+03:00","level":"INFO","msg":"stream: started","id":"1x0wnjat"}
+{"time":"2025-02-24T08:49:53.530125055+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"1x0wnjat"}
+{"time":"2025-02-24T08:49:53.530201001+03:00","level":"INFO","msg":"sender: started","stream_id":"1x0wnjat"}
+{"time":"2025-02-24T08:49:53.530205627+03:00","level":"INFO","msg":"handler: started","stream_id":"1x0wnjat"}
+{"time":"2025-02-24T08:49:53.907047661+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-24T08:49:53.991119084+03:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-24T08:50:02.14843294+03:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-24T08:50:02.148918744+03:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-24T08:50:07.034202109+03:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-24T08:50:07.081121117+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-24T08:50:07.081496376+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-24T08:50:08.036446983+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading output.log","runtime_seconds":0.726326197},{"desc":"uploading config.yaml","runtime_seconds":0.542295465,"progress":"442B/442B"}],"total_operations":2}}
+{"time":"2025-02-24T08:50:08.102128201+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-24T08:50:09.37568493+03:00","level":"INFO","msg":"stream: closing","id":"1x0wnjat"}
+{"time":"2025-02-24T08:50:09.375709595+03:00","level":"INFO","msg":"handler: closed","stream_id":"1x0wnjat"}
+{"time":"2025-02-24T08:50:09.375717129+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"1x0wnjat"}
+{"time":"2025-02-24T08:50:09.375733592+03:00","level":"INFO","msg":"sender: closed","stream_id":"1x0wnjat"}
+{"time":"2025-02-24T08:50:09.37574892+03:00","level":"INFO","msg":"stream: closed","id":"1x0wnjat"}

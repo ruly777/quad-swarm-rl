@@ -1,0 +1,16 @@
+{"time":"2025-02-24T09:27:04.136889536+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/home/fire_tech/quad-swarm-rl/wandb/run-20250224_092703-00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540/logs/debug-core.log"}
+{"time":"2025-02-24T09:27:04.362753861+03:00","level":"INFO","msg":"created new stream","id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}
+{"time":"2025-02-24T09:27:04.362786927+03:00","level":"INFO","msg":"stream: started","id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}
+{"time":"2025-02-24T09:27:04.362813849+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}
+{"time":"2025-02-24T09:27:04.362883643+03:00","level":"INFO","msg":"sender: started","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}
+{"time":"2025-02-24T09:27:04.362914922+03:00","level":"INFO","msg":"handler: started","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}
+{"time":"2025-02-24T09:27:05.051238653+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-24T09:27:15.131505005+03:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-02-24T09:36:58.741442488+03:00","level":"INFO","msg":"stream: closing","id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}
+{"time":"2025-02-24T09:36:58.741476113+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-24T09:36:58.742705372+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-24T09:36:59.594019447+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-24T09:36:59.883013549+03:00","level":"INFO","msg":"handler: closed","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}
+{"time":"2025-02-24T09:36:59.883043599+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}
+{"time":"2025-02-24T09:36:59.883079834+03:00","level":"INFO","msg":"sender: closed","stream_id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}
+{"time":"2025-02-24T09:36:59.892695232+03:00","level":"INFO","msg":"stream: closed","id":"00_single_update_model_see_0_q.o.r.rot_True_20250224_092051_405540"}

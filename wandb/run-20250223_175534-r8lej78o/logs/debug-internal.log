@@ -1,0 +1,18 @@
+{"time":"2025-02-23T17:55:34.235701824+03:00","level":"INFO","msg":"stream: starting","core version":"0.19.5","symlink path":"/home/fire_tech/quad-swarm-rl/wandb/run-20250223_175534-r8lej78o/logs/debug-core.log"}
+{"time":"2025-02-23T17:55:34.462625962+03:00","level":"INFO","msg":"created new stream","id":"r8lej78o"}
+{"time":"2025-02-23T17:55:34.462681417+03:00","level":"INFO","msg":"handler: started","stream_id":"r8lej78o"}
+{"time":"2025-02-23T17:55:34.462723873+03:00","level":"INFO","msg":"stream: started","id":"r8lej78o"}
+{"time":"2025-02-23T17:55:34.462926253+03:00","level":"INFO","msg":"writer: Do: started","stream_id":"r8lej78o"}
+{"time":"2025-02-23T17:55:34.463216667+03:00","level":"INFO","msg":"sender: started","stream_id":"r8lej78o"}
+{"time":"2025-02-23T17:55:34.813472656+03:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-23T17:55:34.899268052+03:00","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-23T17:56:10.788904353+03:00","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-23T17:56:10.7927112+03:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-23T17:56:10.793327902+03:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-23T17:56:11.680292636+03:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-23T17:56:11.792621992+03:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading summary","runtime_seconds":0.112244802}],"total_operations":1}}
+{"time":"2025-02-23T17:56:12.958004388+03:00","level":"INFO","msg":"stream: closing","id":"r8lej78o"}
+{"time":"2025-02-23T17:56:12.95802889+03:00","level":"INFO","msg":"handler: closed","stream_id":"r8lej78o"}
+{"time":"2025-02-23T17:56:12.958035186+03:00","level":"INFO","msg":"writer: Close: closed","stream_id":"r8lej78o"}
+{"time":"2025-02-23T17:56:12.958071502+03:00","level":"INFO","msg":"sender: closed","stream_id":"r8lej78o"}
+{"time":"2025-02-23T17:56:12.958083908+03:00","level":"INFO","msg":"stream: closed","id":"r8lej78o"}

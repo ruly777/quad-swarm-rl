@@ -7,7 +7,7 @@ _params = ParamGrid([
 ])
 
 SINGLE_CLI = QUAD_BASELINE_CLI_1 + (
-    ' --with_wandb=True --wandb_project=Quad-Swarm-RL --wandb_group=single_update_model_2 --wandb_user=multi-drones'
+    ' --with_wandb=False --wandb_project=Quad-Swarm-RL --wandb_group=single_update_model --wandb_user=ruly777'
 )
 
 _experiment = Experiment(
