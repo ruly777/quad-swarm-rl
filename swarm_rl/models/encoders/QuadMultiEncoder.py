@@ -106,7 +106,7 @@ class QuadMultiEncoder(Encoder):
         self.encoder_out_size = 2 * cfg.rnn_size
 
     def get_out_size(self):
-        return self.encoder_output_size
+        return self.encoder_out_size
 
     def forward(self, obs_dict):
         obs = obs_dict['obs']

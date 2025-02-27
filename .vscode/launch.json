@@ -54,7 +54,9 @@
                 "--seed=0",
                 "--experiment=test_seed0",
                 "--restart_behavior=restart",
-                "--serial_mode=True"
+                "--serial_mode=True",
+                "--quads_obst_collision_smooth_max_penalty=4.0",
+                "--train_dir=./train_dir/debug_training"  // Директория для сохранения результатов обучения
             ]
         },
         {
